@@ -1,0 +1,44 @@
+[
+  {
+    "outputFileName": "Content/news/main.min.css",
+    "inputFiles": [
+      "Content/news/main.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/news/owl.carousel.min.css",
+    "inputFiles": [
+      "Content/news/owl.carousel.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/news/responsive.min.css",
+    "inputFiles": [
+      "Content/news/responsive.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/news/magnific-popup.min.css",
+    "inputFiles": [
+      "Content/news/magnific-popup.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/news/presets/preset1.min.css",
+    "inputFiles": [
+      "Content/news/presets/preset1.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/news/main.min.js",
+    "inputFiles": [
+      "Scripts/news/main.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/news/switcher.min.js",
+    "inputFiles": [
+      "Scripts/news/switcher.js"
+    ]
+  }
+]

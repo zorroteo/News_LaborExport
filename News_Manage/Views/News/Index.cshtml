@@ -1,0 +1,77 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<NewsProject.Entitys.tblNew>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="float-left mx-2 mt-2">
+    <h2>Danh sách tin tức:</h2>
+</div>
+<button class="btn btn-sm btn-primary btn-create float-right mx-2 mt-3">@Html.ActionLink("Create New", "Create")</button>
+
+<table class="table">
+    <tr>
+        <th>
+            Name Group
+        </th>
+        <th>
+            Titles
+        </th>
+        <th>
+            Image
+        </th>
+        <th>
+            Status
+        </th>
+        <th>
+            Order
+        </th>
+        <th>
+            View
+        </th>
+        <th>
+            Modify Date
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblGroup.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titles)
+            </td>
+            <td>
+                <span class="user-avatar">
+                    <img src="@Html.DisplayFor(modelItem => item.ImgResizer)" alt="">
+                </span>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Order)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.View)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifyDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</table>
+<div class="paging mx-3 float-right">
+    <div class="pagination-wrapper">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+    </div>
+</div>

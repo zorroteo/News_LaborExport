@@ -1,0 +1,60 @@
+﻿@using PagedList.Mvc
+@model  PagedList.IPagedList<NewsProject.Entitys.tblNew>
+@{
+    ViewBag.Title = "Tư vấn du học, suất khẩu lao động và xin Visa";
+    Layout = "~/Views/Shared/_LayoutNews.cshtml";
+}
+<div class="lifestyle-news">
+    <div class="post">
+        <div class="entry-header">
+            <div class="entry-thumbnail">
+                <img class="img-responsive" src="@Html.DisplayFor(p => p.FirstOrDefault().Img)" alt="">
+            </div>
+        </div>
+        <div class="post-content">
+            <div class="entry-meta">
+                <ul class="list-inline">
+                    <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => p.FirstOrDefault().CreateDate) </a></li>
+                    <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => p.FirstOrDefault().View)</a></li>
+                    <li class="comments"><i class="fa fa-comment-o"></i><a href="#">@Html.DisplayFor(p => p.FirstOrDefault().tblComments.Count)</a></li>
+                </ul>
+            </div>
+            <h2 class="entry-title">
+                <a href="/home/detail?id=@Html.DisplayFor(p => p.FirstOrDefault().Id)">@Html.DisplayFor(p => p.FirstOrDefault().Titles)</a>
+            </h2>
+            <div class="entry-content">
+                <p>@Html.DisplayFor(p => p.FirstOrDefault().Describe)</p>
+            </div>
+        </div>
+    </div><!--/post-->
+</div>
+<div class="section listing-news">
+    @foreach (var item in Model.Skip(1))
+    {
+        <div class="post">
+            <div class="entry-header">
+                <div class="entry-thumbnail">
+                    <img class="img-responsive" src="@Html.DisplayFor(p => item.Img)" alt="">
+                </div>
+            </div>
+            <div class="post-content">
+                <div class="entry-meta">
+                    <ul class="list-inline">
+                        <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                        <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => item.View)</a></li>
+                        <li class="comments"><i class="fa fa-comment-o"></i><a href="#">@Html.DisplayFor(p => item.tblComments.Count)</a></li>
+                    </ul>
+                </div>
+                <h2 class="entry-title">
+                    <a href="/home/detail?id=@Html.DisplayFor(p => item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                </h2>
+                <div class="entry-content">
+                    <p>@Html.DisplayFor(p => item.Describe)</p>
+                </div>
+            </div>
+        </div>
+    }
+    <div class="pagination-wrapper">
+        @Html.PagedListPager(Model, page => Url.Action("GroupNews", new { group = ViewBag.Group, page = page }))
+    </div>
+</div>

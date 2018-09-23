@@ -1,0 +1,25 @@
+/* put your own styles to customize and override the theme */
+.btn-create a{
+    color:#ffffff;
+}
+
+.paging {
+    height: 45px;
+}
+.paging .pagination-wrapper .pagination {
+    font-size: 14px;
+    color: #fff;
+}
+
+.paging .pagination-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.paging .pagination li:first-child a, .paging .pagination li:last-child a {
+    padding: 5px 15px;
+    color: #fff;
+    border-color: #ed1c24;
+    background-color: #ed1c24;
+    border-radius:5px;
+}

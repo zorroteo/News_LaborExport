@@ -1,0 +1,651 @@
+﻿@model News_Manage.Models.TempNews
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="icon" href="/Uploads/images/images/presets/preset1/logo-icon.png">
+    <meta name="author" content="">
+    <!--title-->
+    <title>Tư vấn du học, suất khẩu lao động và xin Visa</title>
+    @Styles.Render("~/Content/bundlesnews")
+    <!--Google Fonts-->
+    <!--<link href='https://fonts.googleapis.com/css?family=Signika+Negative:400,300,600,700' rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=Varela+Round:400,300,600,700;subset=vietnamese' rel='stylesheet' type='text/css'>
+    @*fa icon*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+<body>
+    <div id="main-wrapper" class="homepage">
+        <header id="navigation">
+            <div class="navbar" role="banner">
+                <div class="container">
+                    <a class="secondary-logo" href="/home/index">
+                        <img class="img-responsive" src="~/Uploads/images/images/presets/preset1/logo.png" alt="logo">
+                    </a>
+                </div>
+                <div class="topbar">
+                    <div class="container">
+                        <div id="topbar" class="navbar-header">
+                            <a class="navbar-brand" href="/home/index">
+                                <img class="main-logo img-responsive" src="~/Uploads/images/images/presets/preset1/logo.png" alt="logo">
+                            </a>
+                            <div id="topbar-right">
+                                <div id="date-time"></div>
+                                <div id="weather"></div>
+                            </div>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div id="menubar" class="container">
+                    <nav id="mainmenu" class="navbar-left collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="home">
+                                <a href="javascript:void(0);">Home</a>
+                            </li>
+                            <li class="business dropdown">
+                                <a href="/home/group?group=@News_Manage.Common.Country.Japan">Du học Nhật</a>
+                            </li>
+                            <li class="politics dropdown">
+                                <a href="/home/group?group=@News_Manage.Common.Country.Korea">Du học Hàn</a>
+                            </li>
+                            <li class="environment dropdown mega-dropdown">
+                                <a href="/home/group?group=@News_Manage.Common.Country.Taiwan">Du học Đài</a>
+                            </li>
+                            <li class="world dropdown mega-cat-dropdown">
+                                <a href="/home/group?group=@News_Manage.Common.Country.Canada">Kết nối Canada</a>
+                            </li>
+                            <li class="technology dropdown mega-cat-dropdown">
+                                <a href="/home/group?group=@News_Manage.Common.Country.Germany">Du học Đức</a>
+                            </li>
+                            <li class="technology dropdown mega-cat-dropdown">
+                                <a href="/home/group?group=@News_Manage.Common.Country.Visa">Visa quốc tế</a>
+                            </li>
+                            <li class="sports">
+                                <a href="/home/group?group=@News_Manage.Common.Country.Job">Việc làm nước ngoài</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="searchNlogin">
+                        <ul>
+                            <li class="search-icon"><i class="fa fa-search"></i></li>
+                            <li class="dropdown user-panel">
+                                <a href="/user/login" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                                <div class="dropdown-menu top-user-section">
+                                    <div class="top-user-form">
+                                        <form id="top-login" role="form" action="/user/login" method="POST">
+                                            @Html.AntiForgeryToken()
+                                            <div class="input-group" id="top-login-username">
+                                                <span class="input-group-addon"><img src="~/Uploads/images/images/others/user-icon.png" alt="" /></span>
+                                                <input id="UserName" name="UserName" type="text" class="form-control" placeholder="Email" required="">
+                                            </div>
+                                            <div class="input-group" id="top-login-password">
+                                                <span class="input-group-addon"><img src="~/Uploads/images/images/others/password-icon.png" alt="" /></span>
+                                                <input id="Password" name="Password" type="password" class="form-control" placeholder="Password" required="">
+                                            </div>
+                                            <div>
+                                                <p class="reset-user">Forgot <a href="#">Password/Username?</a></p>
+                                                <button class="btn btn-danger" type="submit">Login</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="search">
+                            <form role="form" action="/home/search">
+                                <input name="search" id="search" type="text" class="search-form" autocomplete="off" placeholder="Search & Press Enter">
+                            </form>
+                        </div> <!--/.search-->
+                    </div><!-- searchNlogin -->
+                </div>
+            </div>
+        </header><!--/#navigation-->
+        <div class="container">
+            <div class="section">
+                <div class="row">
+                    <div class="site-content col-md-12">
+                        <div class="row">
+                            @*10 tin moi nhat*@
+                            <div class="col-sm-6">
+                                <div id="home-slider">
+                                    @foreach (var item in Model.NewNews.Take(4))
+                                    {
+                                        <div class="post feature-post">
+                                            <div class="entry-header">
+                                                <div class="entry-thumbnail">
+                                                    <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                                </div>
+                                                <div class="catagory group-@Html.DisplayFor(p => item.tblGroup.Id)"><a href="#">@Html.DisplayFor(p => item.tblGroup.Title)</a></div>
+                                            </div>
+                                            <div class="post-content">
+                                                <div class="entry-meta">
+                                                    <ul class="list-inline">
+                                                        <li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                        <li class="views"><i class="fa fa-eye"></i><a href="#">@Html.DisplayFor(p => item.View)</a></li>
+                                                        <li class="comments"><i class="fa fa-comment-o"></i><a href="#">@Html.DisplayFor(p => item.tblComments.Count)</a></li>
+                                                    </ul>
+                                                </div>
+                                                <h2 class="entry-title">
+                                                    <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            @foreach (var item in Model.NewNews.Skip(4).Take(2))
+                            {
+                                <div class="col-sm-3">
+                                    <div class="righ-slider">
+                                        <div class="post feature-post">
+                                            <div class="entry-header">
+                                                <div class="entry-thumbnail">
+                                                    <img class="img-responsive" src="@Html.DisplayFor(p => item.Img)" alt="" />
+                                                </div>
+                                                <div class="catagory group-@Html.DisplayFor(p => item.tblGroup.Id)"><span><a href="#">@Html.DisplayFor(p => item.tblGroup.Title)</a></span></div>
+                                            </div>
+                                            <div class="post-content">
+                                                <div class="entry-meta">
+                                                    <ul class="list-inline">
+                                                        <li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                        <li class="views"><i class="fa fa-eye"></i><a href="#">@Html.DisplayFor(p => item.View)</a></li>
+                                                    </ul>
+                                                </div>
+                                                <h2 class="entry-title">
+                                                    <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <div class="row">
+                            @foreach (var item in Model.NewNews.Skip(6).Take(4))
+                            {
+                                <div class="col-sm-3 botton-slider">
+                                    <div class="post feature-post">
+                                        <div class="entry-header">
+                                            <div class="entry-thumbnail">
+                                                <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                            </div>
+                                            <div class="catagory group-@Html.DisplayFor(p => item.tblGroup.Id)"><span><a href="#">@Html.DisplayFor(p => item.tblGroup.Title)</a></span></div>
+                                        </div>
+                                        <div class="post-content">
+                                            <div class="entry-meta">
+                                                <ul class="list-inline">
+                                                    <li class="publish-date"><i class="fa fa-clock-o"></i><a href="#"> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                    <li class="views"><i class="fa fa-eye"></i><a href="#">@Html.DisplayFor(p => item.View)</a></li>
+                                                </ul>
+                                            </div>
+                                            <h2 class="entry-title">
+                                                <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                            </h2>
+                                        </div>
+                                    </div><!--/post-->
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="latest-news-wrapper">
+                    <h1 class="section-title">Tin nổi bật</h1>
+                    <div id="latest-news">
+                        @foreach (var item in Model.NewNews)
+                        {
+                            <div class="post medium-post">
+                                <div class="entry-header">
+                                    <div class="entry-thumbnail">
+                                        <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                    </div>
+                                    <div class="catagory group-@Html.DisplayFor(p => item.tblGroup.Id)"><span><a href="#">@Html.DisplayFor(p => item.tblGroup.Title)</a></span></div>
+                                </div>
+                                <div class="post-content">
+                                    <div class="entry-meta">
+                                        <ul class="list-inline">
+                                            <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                            <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => item.View)</a></li>
+                                        </ul>
+                                    </div>
+                                    <h2 class="entry-title">
+                                        <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                    </h2>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="section">
+                <div class="row">
+                    <div class="col-md-9 col-sm-8">
+                        <div id="site-content">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-6">
+                                    <div class="left-content">
+                                        @*du hoc nhat*@
+                                        <div class="section world-news">
+                                            <h1 class="section-title title">Du Học Nhật</h1>
+                                            <div class="cat-menu">
+                                                <a href="/home/group?group=@News_Manage.Common.Country.Japan">See all</a>
+                                            </div>
+                                            <div class="post">
+                                                <div class="entry-header">
+                                                    <div class="entry-thumbnail">
+                                                        <img class="img-responsive" src="@Html.DisplayFor(p=>p.JapanNews.FirstOrDefault().Img)" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="post-content">
+                                                    <div class="entry-meta">
+                                                        <ul class="list-inline">
+                                                            <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => p.JapanNews.FirstOrDefault().CreateDate) </a></li>
+                                                            <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => p.JapanNews.FirstOrDefault().View)</a></li>
+                                                            <li class="comments"><i class="fa fa-comment-o"></i><a href="#">@Html.DisplayFor(p => p.JapanNews.FirstOrDefault().tblComments.Count)</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <h2 class="entry-title">
+                                                        <a href="/home/detail?id@Html.DisplayFor(p => p.JapanNews.FirstOrDefault().Id)">@Html.DisplayFor(p => p.JapanNews.FirstOrDefault().Titles)</a>
+                                                    </h2>
+                                                    <div class="entry-content">
+                                                        <p>@Html.DisplayFor(p => p.JapanNews.FirstOrDefault().Describe)</p>
+                                                    </div>
+                                                </div>
+                                                <div class="list-post">
+                                                    <ul>
+                                                        @foreach (var item in Model.JapanNews.Skip(1))
+                                                        {
+                                                            <li><a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles) <i class="fa fa-angle-right"></i></a></li>
+                                                        }
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="section technology-news">
+                                            <h1 class="section-title">Du Học Đài</h1>
+                                            <div class="cat-menu">
+                                                <a href="/home/group?group=@News_Manage.Common.Country.Taiwan">See all</a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8 col-sm-12">
+                                                    <div class="post">
+                                                        <div class="entry-header">
+                                                            <div class="entry-thumbnail">
+                                                                <img class="img-responsive" src="@Html.DisplayFor(p=>p.TaiwanNews.FirstOrDefault().Img)" alt="" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="post-content">
+                                                            <div class="entry-meta">
+                                                                <ul class="list-inline">
+                                                                    <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => p.TaiwanNews.FirstOrDefault().CreateDate) </a></li>
+                                                                    <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => p.TaiwanNews.FirstOrDefault().View)</a></li>
+                                                                    <li class="comments"><i class="fa fa-comment-o"></i><a href="#">@Html.DisplayFor(p => p.TaiwanNews.FirstOrDefault().tblComments.Count)</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <h2 class="entry-title">
+                                                                <a href="/home/detail?id=@Html.DisplayFor(p => p.TaiwanNews.FirstOrDefault().Id)">@Html.DisplayFor(p => p.TaiwanNews.FirstOrDefault().Titles)</a>
+                                                            </h2>
+                                                            <div class="entry-content">
+                                                                <p>@Html.DisplayFor(p => p.TaiwanNews.FirstOrDefault().Describe)</p>
+                                                            </div>
+                                                        </div>
+                                                    </div><!--/post-->
+                                                </div>
+                                                <div class="col-md-4 col-sm-12">
+                                                    @foreach (var item in Model.TaiwanNews.Skip(1).Take(2))
+                                                    {
+                                                        <div class="post small-post">
+                                                            <div class="entry-header">
+                                                                <div class="entry-thumbnail">
+                                                                    <img class="img-responsive" src="@Html.DisplayFor(p => item.Img)" alt="" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-content">
+                                                                <div class="entry-meta">
+                                                                    <ul class="list-inline">
+                                                                        <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <h2 class="entry-title">
+                                                                    <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*quang cao*@
+                                        <div class="section photo-gallery">
+                                            <h1 class="section-title title">Ảnh đẹp muôn nơi</h1>
+                                            <div class="cat-menu">
+                                                <a href="/home/group?group=@News_Manage.Common.Country.Image">See all</a>
+                                            </div>
+                                            <div id="photo-gallery" class="carousel slide carousel-fade post" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="item active">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/Canada/canada (1).jpg" alt="" /></a>
+                                                        <h2><a href="#">@*No one can agree on how a dog is supposed to wear human pants*@</a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/Hanquoc/Hanquoc (1).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/nhatban/nhatban (4).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/nhatban/nhatban (2).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/Canada/canada (5).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/duc/duc (3).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/dailoan/dailoan (1).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/dailoan/dailoan (2).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                    <div class="item">
+                                                        <a href="#"><img class="img-responsive" src="~/Uploads/images/HinhAnh/Canada/canada (1).jpg" alt="" /></a>
+                                                        <h2><a href="#"></a></h2>
+                                                    </div>
+                                                </div><!--/carousel-inner-->
+
+                                                <ol class="gallery-indicators carousel-indicators">
+                                                    <li data-target="#photo-gallery" data-slide-to="0" class="active">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/Canada/canada (1).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="1">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/Hanquoc/Hanquoc (1).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="2">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/nhatban/nhatban (4).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="3">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/nhatban/nhatban (2).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="4">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/Canada/canada (5).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="5">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/duc/duc (3).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="6">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/dailoan/dailoan (1).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="7">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/dailoan/dailoan (2).jpg" alt="" />
+                                                    </li>
+                                                    <li data-target="#photo-gallery" data-slide-to="8">
+                                                        <img class="img-responsive" src="~/Uploads/_thumbs/images/HinhAnh/Canada/canada (1).jpg" alt="" />
+                                                    </li>
+                                                </ol><!--/gallery-indicators-->
+
+                                                <div class="gallery-turner">
+                                                    <a class="left-photo" href="#photo-gallery" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                                                    <a class="right-photo" href="#photo-gallery" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                                                </div>
+                                            </div>
+                                        </div><!--/photo-gallery-->
+                                        @*du hoc canada*@
+                                        <div class="section lifestyle-section">
+                                            <h1 class="section-title">Du Học Canada</h1>
+                                            <div class="cat-menu">
+                                                <a href="/home/group?group=@News_Manage.Common.Country.Canada">See all</a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    @foreach (var item in Model.CanadaNews.Take(2))
+                                                    {
+                                                        <div class="post medium-post">
+                                                            <div class="entry-header">
+                                                                <div class="entry-thumbnail">
+                                                                    <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-content">
+                                                                <div class="entry-meta">
+                                                                    <ul class="list-inline">
+                                                                        <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                                        <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => item.View)</a></li>
+                                                                        <li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <h2 class="entry-title">
+                                                                    <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="col-md-6">
+                                                    @foreach (var item in Model.CanadaNews.Skip(2).Take(2))
+                                                    {
+                                                        <div class="post medium-post">
+                                                            <div class="entry-header">
+                                                                <div class="entry-thumbnail">
+                                                                    <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-content">
+                                                                <div class="entry-meta">
+                                                                    <ul class="list-inline">
+                                                                        <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                                        <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => item.View)</a></li>
+                                                                        <li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <h2 class="entry-title">
+                                                                    <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @*viec lam nuoc ngoai*@
+                                        <div class="section health-section">
+                                            <h1 class="section-title">Việc làm nước ngoài</h1>
+                                            <div class="cat-menu">
+                                                <a href="/home/group?group=@News_Manage.Common.Country.Job">See all</a>
+                                            </div>
+                                            <div class="health-feature">
+                                                <div class="post">
+                                                    <div class="entry-header">
+                                                        <div class="entry-thumbnail">
+                                                            <img class="img-responsive" src="@Html.DisplayFor(p=>p.JobNews.FirstOrDefault().Img)" alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="post-content">
+                                                        <div class="entry-meta">
+                                                            <ul class="list-inline">
+                                                                <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => p.JobNews.FirstOrDefault().CreateDate) </a></li>
+                                                                <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => p.JobNews.FirstOrDefault().View)</a></li>
+                                                                <li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <h2 class="entry-title">
+                                                            <a href="/home/detail?id=@Html.DisplayFor(p => p.JobNews.FirstOrDefault().Id)">@Html.DisplayFor(p => p.JobNews.FirstOrDefault().Titles)</a>
+                                                        </h2>
+                                                    </div>
+                                                </div><!--/post-->
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 col-md-6">
+                                                    @foreach (var item in Model.JobNews.Skip(1).Take(2))
+                                                    {
+                                                        <div class="post small-post job-small">
+                                                            <div class="entry-header">
+                                                                <div class="entry-thumbnail">
+                                                                    <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-content">
+                                                                <div class="entry-meta">
+                                                                    <ul class="list-inline">
+                                                                        <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <h2 class="entry-title">
+                                                                    <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="col-sm-12 col-md-6">
+                                                    @foreach (var item in Model.JobNews.Skip(3).Take(2))
+                                                    {
+                                                        <div class="post small-post">
+                                                            <div class="entry-header">
+                                                                <div class="entry-thumbnail">
+                                                                    <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="post-content">
+                                                                <div class="entry-meta">
+                                                                    <ul class="list-inline">
+                                                                        <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <h2 class="entry-title">
+                                                                    <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                                </h2>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="middle-content">
+                                        <div class="section sports-section">
+                                            <h1 class="section-title title">Du Học Hàn</h1>
+                                            <div class="cat-menu">
+                                                <a href="/home/group?group=@News_Manage.Common.Country.Korea">See all</a>
+                                            </div>
+                                            @foreach (var item in Model.KoreaNews)
+                                            {
+                                                <div class="post medium-post">
+                                                    <div class="entry-header">
+                                                        <div class="entry-thumbnail">
+                                                            <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="post-content">
+                                                        <div class="entry-meta">
+                                                            <ul class="list-inline">
+                                                                <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                                <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => item.View)</a></li>
+                                                                <li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <h2 class="entry-title">
+                                                            <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                        <div class="section business-section">
+                                            <h1 class="section-title">Du Học Đức</h1>
+                                            <div class="cat-menu">
+                                                <a href="/home/group?group=@News_Manage.Common.Country.Germany">See all</a>
+                                            </div>
+                                            @foreach (var item in Model.GermanyNews)
+                                            {
+                                                <div class="post medium-post">
+                                                    <div class="entry-header">
+                                                        <div class="entry-thumbnail">
+                                                            <img class="img-responsive" src="@Html.DisplayFor(p=>item.Img)" alt="" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="post-content">
+                                                        <div class="entry-meta">
+                                                            <ul class="list-inline">
+                                                                <li class="publish-date"><a href="#"><i class="fa fa-clock-o"></i> @Html.DisplayFor(p => item.CreateDate) </a></li>
+                                                                <li class="views"><a href="#"><i class="fa fa-eye"></i>@Html.DisplayFor(p => item.View)</a></li>
+                                                                <li class="loves"><a href="#"><i class="fa fa-heart-o"></i>278</a></li>
+                                                            </ul>
+                                                        </div>
+                                                        <h2 class="entry-title">
+                                                            <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                        </h2>
+                                                    </div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-4">
+                        <div id="sitebar">
+                            @Html.Partial("FollowUs")
+                            <div class="widget">
+                                <h1 class="section-title title">Được xem nhiều nhất</h1>
+                                <ul class="post-list">
+                                    @foreach (var item in Model.ViewsNews)
+                                    {
+                                        <li>
+                                            <div class="post small-post view-small">
+                                                <div class="entry-header">
+                                                    <div class="entry-thumbnail">
+                                                        <img class="img-responsive" src="@Html.DisplayFor(p=>item.ImgResizer)" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="post-content">
+                                                    <div class="video-catagory"><a href="#">@Html.DisplayFor(p => item.tblGroup.Title)</a></div>
+                                                    <h2 class="entry-title">
+                                                        <a href="/home/detail?id=@Html.DisplayFor(p=>item.Id)">@Html.DisplayFor(p => item.Titles)</a>
+                                                    </h2>
+                                                </div>
+                                            </div><!--/post-->
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div><!--/#sitebar-->
+                    </div>
+                </div>
+            </div><!--/.section-->
+        </div><!--/.container-->
+        <div class="footer-widget">
+            @Html.Partial("../menu/newsfooterwidget")
+        </div><!--/.footer-widget-->
+    </div><!--/#main-wrapper-->
+    <footer id="footer">
+        @Html.Partial("../menu/newsfooter")
+    </footer>
+    @Scripts.Render("~/bundles/news")
+</body>
+</html>
