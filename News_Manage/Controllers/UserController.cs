@@ -50,7 +50,7 @@ namespace News_Manage.Controllers
             if (IsLogin())
             {
                 //var tblUser = db.tblUsers.Where(p => p.Status != (short)NewsProject.Commons.Status.InActive);
-                return View(ExecuteNews.User.GetByPageList(SessionDecentralize(), page, (short)Common.PageNumber.Normal).PagedList);
+                return View(ExecuteNews.User.GetByPageList(SessionDecentralize(), page, (short)Common.PageSize.Normal).PagedList);
             }
             else return RedirectToAction("Login", "User");
         }
@@ -60,7 +60,7 @@ namespace News_Manage.Controllers
             if (IsLogin())
             {
                 // var tblUser = db.tblUsers.Where(p => p.Status == (short)NewsProject.Commons.Status.New);
-                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.New, page, (short)Common.PageNumber.Normal).PagedList);
+                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.New, page, (short)Common.PageSize.Normal).PagedList);
             }
             else return RedirectToAction("Login", "User");
         }
@@ -71,7 +71,7 @@ namespace News_Manage.Controllers
             {
                 //var tblUser = db.tblUsers.Where(p => p.Status == (short)NewsProject.Commons.Status.NotHandling);
                 //return View(tblUser.ToList());
-                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.NotHandling, page, (short)Common.PageNumber.Normal).PagedList);
+                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.NotHandling, page, (short)Common.PageSize.Normal).PagedList);
             }
             else return RedirectToAction("Login", "User");
         }
@@ -82,7 +82,7 @@ namespace News_Manage.Controllers
             {
                 //var tblUser = db.tblUsers.Where(p => p.Status == (short)NewsProject.Commons.Status.Handling);
                 //return View(tblUser.ToList());
-                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.Handling, page, (short)Common.PageNumber.Normal).PagedList);
+                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.Handling, page, (short)Common.PageSize.Normal).PagedList);
             }
             else return RedirectToAction("Login", "User");
         }
@@ -93,7 +93,7 @@ namespace News_Manage.Controllers
             {
                 //var tblUser = db.tblUsers.Where(p => p.Status == (short)NewsProject.Commons.Status.Deleted);
                 //return View(tblUser.ToList());
-                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.Deleted, page, (short)Common.PageNumber.Normal).PagedList);
+                return View(ExecuteNews.User.GetByStatusPageList(SessionDecentralize(), (short)NewsProject.Commons.Status.Deleted, page, (short)Common.PageSize.Normal).PagedList);
             }
             else return RedirectToAction("Login", "User");
         }

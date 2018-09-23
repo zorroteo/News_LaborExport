@@ -52,66 +52,67 @@
 
                 </div>
                 <div id="menubar" class="container">
-                    <nav id="mainmenu" class="navbar-left collapse navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="home">
-                                <a href="javascript:void(0);">Home</a>
-                            </li>
-                            <li class="business dropdown">
-                                <a href="/home/group?group=@News_Manage.Common.Country.Japan">Du học Nhật</a>
-                            </li>
-                            <li class="politics dropdown">
-                                <a href="/home/group?group=@News_Manage.Common.Country.Korea">Du học Hàn</a>
-                            </li>
-                            <li class="environment dropdown mega-dropdown">
-                                <a href="/home/group?group=@News_Manage.Common.Country.Taiwan">Du học Đài</a>
-                            </li>
-                            <li class="world dropdown mega-cat-dropdown">
-                                <a href="/home/group?group=@News_Manage.Common.Country.Canada">Kết nối Canada</a>
-                            </li>
-                            <li class="technology dropdown mega-cat-dropdown">
-                                <a href="/home/group?group=@News_Manage.Common.Country.Germany">Du học Đức</a>
-                            </li>
-                            <li class="technology dropdown mega-cat-dropdown">
-                                <a href="/home/group?group=@News_Manage.Common.Country.Visa">Visa quốc tế</a>
-                            </li>
-                            <li class="sports">
-                                <a href="/home/group?group=@News_Manage.Common.Country.Job">Việc làm nước ngoài</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <div class="searchNlogin">
-                        <ul>
-                            <li class="search-icon"><i class="fa fa-search"></i></li>
-                            <li class="dropdown user-panel">
-                                <a href="/user/login" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
-                                <div class="dropdown-menu top-user-section">
-                                    <div class="top-user-form">
-                                        <form id="top-login" role="form" action="/user/login" method="POST">
-                                            @Html.AntiForgeryToken()
-                                            <div class="input-group" id="top-login-username">
-                                                <span class="input-group-addon"><img src="~/Uploads/images/images/others/user-icon.png" alt="" /></span>
-                                                <input id="UserName" name="UserName" type="text" class="form-control" placeholder="Email" required="">
-                                            </div>
-                                            <div class="input-group" id="top-login-password">
-                                                <span class="input-group-addon"><img src="~/Uploads/images/images/others/password-icon.png" alt="" /></span>
-                                                <input id="Password" name="Password" type="password" class="form-control" placeholder="Password" required="">
-                                            </div>
-                                            <div>
-                                                <p class="reset-user">Forgot <a href="#">Password/Username?</a></p>
-                                                <button class="btn btn-danger" type="submit">Login</button>
-                                            </div>
-                                        </form>
+                    @Html.Partial("../menu/newsnavbar")
+                    @*<nav id="mainmenu" class="navbar-left collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="home">
+                                    <a href="javascript:void(0);">Home</a>
+                                </li>
+                                <li class="business dropdown">
+                                    <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Japan">Du học Nhật</a>
+                                </li>
+                                <li class="politics dropdown">
+                                    <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Korea">Du học Hàn</a>
+                                </li>
+                                <li class="environment dropdown mega-dropdown">
+                                    <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Taiwan">Du học Đài</a>
+                                </li>
+                                <li class="world dropdown mega-cat-dropdown">
+                                    <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Canada">Kết nối Canada</a>
+                                </li>
+                                <li class="technology dropdown mega-cat-dropdown">
+                                    <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Germany">Du học Đức</a>
+                                </li>
+                                <li class="technology dropdown mega-cat-dropdown">
+                                    <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Visa">Visa quốc tế</a>
+                                </li>
+                                <li class="sports">
+                                    <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Job">Việc làm nước ngoài</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="searchNlogin">
+                            <ul>
+                                <li class="search-icon"><i class="fa fa-search"></i></li>
+                                <li class="dropdown user-panel">
+                                    <a href="/user/login" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i></a>
+                                    <div class="dropdown-menu top-user-section">
+                                        <div class="top-user-form">
+                                            <form id="top-login" role="form" action="/user/login" method="POST">
+                                                @Html.AntiForgeryToken()
+                                                <div class="input-group" id="top-login-username">
+                                                    <span class="input-group-addon"><img src="~/Uploads/images/images/others/user-icon.png" alt="" /></span>
+                                                    <input id="UserName" name="UserName" type="text" class="form-control" placeholder="Email" required="">
+                                                </div>
+                                                <div class="input-group" id="top-login-password">
+                                                    <span class="input-group-addon"><img src="~/Uploads/images/images/others/password-icon.png" alt="" /></span>
+                                                    <input id="Password" name="Password" type="password" class="form-control" placeholder="Password" required="">
+                                                </div>
+                                                <div>
+                                                    <p class="reset-user">Forgot <a href="#">Password/Username?</a></p>
+                                                    <button class="btn btn-danger" type="submit">Login</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="search">
-                            <form role="form" action="/home/search">
-                                <input name="search" id="search" type="text" class="search-form" autocomplete="off" placeholder="Search & Press Enter">
-                            </form>
-                        </div> <!--/.search-->
-                    </div><!-- searchNlogin -->
+                                </li>
+                            </ul>
+                            <div class="search">
+                                <form role="form" action="/home/search">
+                                    <input name="search" id="search" type="text" class="search-form" autocomplete="off" placeholder="Search & Press Enter">
+                                </form>
+                            </div> <!--/.search-->
+                        </div><!-- searchNlogin -->*@
                 </div>
             </div>
         </header><!--/#navigation-->
@@ -244,7 +245,7 @@
                                         <div class="section world-news">
                                             <h1 class="section-title title">Du Học Nhật</h1>
                                             <div class="cat-menu">
-                                                <a href="/home/group?group=@News_Manage.Common.Country.Japan">See all</a>
+                                                <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Japan">See all</a>
                                             </div>
                                             <div class="post">
                                                 <div class="entry-header">
@@ -280,7 +281,7 @@
                                         <div class="section technology-news">
                                             <h1 class="section-title">Du Học Đài</h1>
                                             <div class="cat-menu">
-                                                <a href="/home/group?group=@News_Manage.Common.Country.Taiwan">See all</a>
+                                                <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Taiwan">See all</a>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-8 col-sm-12">
@@ -335,7 +336,7 @@
                                         <div class="section photo-gallery">
                                             <h1 class="section-title title">Ảnh đẹp muôn nơi</h1>
                                             <div class="cat-menu">
-                                                <a href="/home/group?group=@News_Manage.Common.Country.Image">See all</a>
+                                                <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Image">See all</a>
                                             </div>
                                             <div id="photo-gallery" class="carousel slide carousel-fade post" data-ride="carousel">
                                                 <div class="carousel-inner">
@@ -417,7 +418,7 @@
                                         <div class="section lifestyle-section">
                                             <h1 class="section-title">Du Học Canada</h1>
                                             <div class="cat-menu">
-                                                <a href="/home/group?group=@News_Manage.Common.Country.Canada">See all</a>
+                                                <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Canada">See all</a>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -474,7 +475,7 @@
                                         <div class="section health-section">
                                             <h1 class="section-title">Việc làm nước ngoài</h1>
                                             <div class="cat-menu">
-                                                <a href="/home/group?group=@News_Manage.Common.Country.Job">See all</a>
+                                                <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Job">See all</a>
                                             </div>
                                             <div class="health-feature">
                                                 <div class="post">
@@ -551,7 +552,7 @@
                                         <div class="section sports-section">
                                             <h1 class="section-title title">Du Học Hàn</h1>
                                             <div class="cat-menu">
-                                                <a href="/home/group?group=@News_Manage.Common.Country.Korea">See all</a>
+                                                <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Korea">See all</a>
                                             </div>
                                             @foreach (var item in Model.KoreaNews)
                                             {
@@ -579,7 +580,7 @@
                                         <div class="section business-section">
                                             <h1 class="section-title">Du Học Đức</h1>
                                             <div class="cat-menu">
-                                                <a href="/home/group?group=@News_Manage.Common.Country.Germany">See all</a>
+                                                <a href="/home/group?group=@News_Manage.Common.MenuKeyWord.Germany">See all</a>
                                             </div>
                                             @foreach (var item in Model.GermanyNews)
                                             {

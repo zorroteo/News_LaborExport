@@ -1,4 +1,7 @@
 ﻿using System.Web.Mvc;
+using System;
+using System.Collections.Generic;
+using NewsProject.Entitys;
 
 namespace News_Manage.Controllers
 {
@@ -34,8 +37,17 @@ namespace News_Manage.Controllers
             //    return View();
             //}
             //else return RedirectToAction("Login", "User");
+            // var groups = NewsProject.ExecuteNews.Group.GetByPaging(1, (short)Common.PageSize.Small);
+            //if (groups == null)
+            //{
+            //    return null;
+            //}
+            //foreach (var item in groups)
+            //{
+            //    item.Childrens = NewsProject.ExecuteNews.Group.GetByParent(item.Id);
+            //}
 
-            return View();
+            return View("NewsNavbar", "hello");
         }
     }
 }
