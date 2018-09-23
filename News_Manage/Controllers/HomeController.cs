@@ -13,12 +13,12 @@ namespace News_Manage.Controllers
         {
             var tempNews = new TempNews()
             {
-                CanadaNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)Country.Canada, 1, 5).List,
-                JapanNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)Country.Japan, 1, 5).List,
-                GermanyNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)Country.Germany, 1, 5).List,
-                KoreaNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)Country.Korea, 1, 5).List,
-                TaiwanNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)Country.Taiwan, 1, 5).List,
-                JobNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)Country.Job, 1, 10).List,
+                CanadaNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)MenuKeyWord.Canada, 1, 5).List,
+                JapanNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)MenuKeyWord.Japan, 1, 5).List,
+                GermanyNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)MenuKeyWord.Germany, 1, 5).List,
+                KoreaNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)MenuKeyWord.Korea, 1, 5).List,
+                TaiwanNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)MenuKeyWord.Taiwan, 1, 5).List,
+                JobNews = NewsProject.ExecuteNews.News.GetByGroupPaging(SessionDecentralize(), (short)MenuKeyWord.Job, 1, 10).List,
                 OrderNews = NewsProject.ExecuteNews.News.GetAll(SessionDecentralize()).List.OrderByDescending(p => p.Order).Take(10).ToList(),
                 NewNews = NewsProject.ExecuteNews.News.GetAllPaging(SessionDecentralize(), 1, 10).List,
                 ViewsNews = NewsProject.ExecuteNews.News.GetAll(SessionDecentralize()).List.OrderByDescending(p => p.View).Take(10).ToList()
@@ -31,14 +31,14 @@ namespace News_Manage.Controllers
         public ActionResult GroupNews(string group, int? page)
         {
             var pageNumber = page ?? 1;
-            Common.Country groupName;
+            Common.MenuKeyWord groupName;
             ViewBag.Group = group;
             if (Enum.TryParse(group, out groupName))
             {
-                var listItem = NewsProject.ExecuteNews.News.GetByGroupPageList(SessionDecentralize(), (short)groupName, pageNumber, (int)PageNumber.Normal);
+                var listItem = NewsProject.ExecuteNews.News.GetByGroupPageList(SessionDecentralize(), (short)groupName, pageNumber, (short)PageSize.Normal);
                 return View("GroupNews", listItem.PagedList);
             }
-            return View("GroupNews", NewsProject.ExecuteNews.News.GetByGroupPageList(SessionDecentralize(), (short)Common.Country.New, pageNumber, (int)PageNumber.Normal).PagedList);
+            return View("GroupNews", NewsProject.ExecuteNews.News.GetByGroupPageList(SessionDecentralize(), (short)Common.MenuKeyWord.New, pageNumber, (short)PageSize.Normal).PagedList);
         }
 
         [ActionName("Detail")]
