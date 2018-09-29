@@ -13,7 +13,7 @@ namespace News_Manage.Controllers
             if (IsLogin())
             {
                 //return View(db.tblSupports.OrderByDescending(p => p.Id).ToPagedList(page, (short)Common.PageNumber.Normal));
-                return View(ExecuteNews.Support.GetByPageList(page, (short)Common.PageNumber.Normal));
+                return View(ExecuteNews.Support.GetByPageList(page, (short)Common.PageSize.Normal));
             }
             else return RedirectToAction("Login", "User");
         }
@@ -22,7 +22,7 @@ namespace News_Manage.Controllers
         {
             if (IsLogin())
             {
-                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.New, page, (short)Common.PageNumber.Normal));
+                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.New, page, (short)Common.PageSize.Normal));
                 //return View(db.tblSupports.Where(p => p.Status == (short)NewsProject.Commons.Status.New).OrderByDescending(p => p.Id).ToPagedList(page, (short)Common.PageNumber.Normal));
             }
             else return RedirectToAction("Login", "User");
@@ -32,7 +32,7 @@ namespace News_Manage.Controllers
         {
             if (IsLogin())
             {
-                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.NotHandling, page, (short)Common.PageNumber.Normal));
+                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.NotHandling, page, (short)Common.PageSize.Normal));
                 //return View(db.tblSupports.Where(p => p.Status == (short)NewsProject.Commons.Status.NotHandling).OrderByDescending(p => p.Id).ToPagedList(page, (short)Common.PageNumber.Normal));
             }
             else return RedirectToAction("Login", "User");
@@ -42,7 +42,7 @@ namespace News_Manage.Controllers
         {
             if (IsLogin())
             {
-                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.Handling, page, (short)Common.PageNumber.Normal));
+                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.Handling, page, (short)Common.PageSize.Normal));
                 //return View(db.tblSupports.Where(p => p.Status == (short)NewsProject.Commons.Status.Handling).OrderByDescending(p => p.Id).ToPagedList(page, (short)Common.PageNumber.Normal));
             }
             else return RedirectToAction("Login", "User");
@@ -52,7 +52,7 @@ namespace News_Manage.Controllers
         {
             if (IsLogin())
             {
-                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.Deleted, page, (short)Common.PageNumber.Normal));
+                return View(ExecuteNews.Support.GetByStatusPageList((short)NewsProject.Commons.Status.Deleted, page, (short)Common.PageSize.Normal));
                 // return View(db.tblSupports.Where(p => p.Status == (short)NewsProject.Commons.Status.Deleted).OrderByDescending(p => p.Id).ToPagedList(page, (short)Common.PageNumber.Normal));
             }
             else return RedirectToAction("Login", "User");

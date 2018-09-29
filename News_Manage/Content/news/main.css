@@ -456,10 +456,8 @@ img.mfp-img {
         float: right;
         margin-top: -32px;
     }
-
         #mainmenu .sub-catagory ul li {
         }
-
             #mainmenu .sub-catagory ul li a {
                 font-size: 12px;
                 text-transform: uppercase;
@@ -469,11 +467,9 @@ img.mfp-img {
                 position: relative;
                 border-bottom: 2px solid transparent;
             }
-
                 #mainmenu .sub-catagory ul li a:hover {
                     color: #fff;
                 }
-
 #mainmenu .post a:hover {
     color: #aeaeae;
 }
@@ -767,24 +763,19 @@ img.mfp-img {
     color: #ed1c24;
 }
 
-#mainmenu .business,
-#mainmenu .group-6 {
-    color: #00aeef;
-}
-
-#mainmenu .politics,
-#mainmenu .group-5 {
-    color: #0072bc;
-}
-
-#mainmenu .sports,
-#mainmenu .group-7 {
-    color: #f26522;
-}
-
 #mainmenu .world,
 #mainmenu .group-1 {
     color: #f7941d;
+}
+
+#mainmenu .health,
+#mainmenu .group-2 {
+    color: #92278f;
+}
+
+#mainmenu .entertainment,
+#mainmenu .group-3 {
+    color: #1cbbb4;
 }
 
 #mainmenu .technology,
@@ -792,14 +783,25 @@ img.mfp-img {
     color: #8dc63f;
 }
 
+
+#mainmenu .politics,
+#mainmenu .group-5 {
+    color: #0072bc;
+}
+
+#mainmenu .business,
+#mainmenu .group-6 {
+    color: #00aeef;
+}
+
+#mainmenu .sports,
+#mainmenu .group-7 {
+    color: #f26522;
+}
+
 #mainmenu .environment,
 #mainmenu .group-8 {
     color: #00a651;
-}
-
-#mainmenu .health,
-#mainmenu .group-2 {
-    color: #92278f;
 }
 
 #mainmenu .entertainment,
@@ -814,7 +816,6 @@ img.mfp-img {
 #mainmenu .more {
     color: #2f2f2f;
 }
-
 
 /*==============================
 ========= Main Content==========

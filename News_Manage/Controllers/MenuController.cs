@@ -1,4 +1,7 @@
 ﻿using System.Web.Mvc;
+using System;
+using System.Collections.Generic;
+using NewsProject.Entitys;
 
 namespace News_Manage.Controllers
 {
@@ -23,18 +26,13 @@ namespace News_Manage.Controllers
         {
             return View();
         }
+
         /// <summary>
         /// Menu common
         /// </summary>
         /// <returns></returns>
         public ActionResult NewsNavbar()
         {
-            //if (IsLogin())
-            //{
-            //    return View();
-            //}
-            //else return RedirectToAction("Login", "User");
-
             return View();
         }
     }
