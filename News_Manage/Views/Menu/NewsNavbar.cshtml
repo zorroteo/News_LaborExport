@@ -1,16 +1,18 @@
-﻿@model string
+﻿@using NewsProject.Entitys;
+@using News_Manage.Common;
+@model IEnumerable<tblGroup>
+
 <nav id="mainmenu" class="navbar-left collapse navbar-collapse">
-    <h2>@Model</h2>
-    @*<ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">
         <li class="home">
-            <a href="javascript:void(0);">Home</a>
+            <a href="/home/index">Home</a>
         </li>
         @if (Model != null)
         {
             foreach (var item in Model)
             {
-                <li class="environment dropdown mega-dropdown">
-                    <a href="/home/index" class="dropdown-toggle" data-toggle="dropdown">@item.Title</a>
+                <li class="group-@item.Id dropdown mega-dropdown">
+                    <a href="/home/group?group=@item.Id" class="dropdown-toggle" data-toggle="dropdown">@item.Title</a>
                     <div class="dropdown-menu mega-menu">
                         <div class="container">
                             <div class="row">
@@ -28,11 +30,9 @@
                                                         <li><a href="#">@childer.Title</a></li>
                                                     }
                                                 </ul>
-
                                             }
                                         }
                                     }
-
                                 </div>
                                 <div class="col-sm-3">
                                     <h2>Menu with image</h2>
@@ -52,7 +52,7 @@
                 </li>
             }
         }
-    </ul>*@
+    </ul>
 </nav>
 <div class="searchNlogin">
     <ul>

@@ -16,5 +16,6 @@ namespace News_Manage.Models
         public ICollection<tblNew> CanadaNews { get; set; }
         public ICollection<tblNew> JobNews { get; set; }
         public ICollection<tblNew> OrderNews { get; set; }
+        public ICollection<tblGroup> Groups { get; set; }
     }
 }

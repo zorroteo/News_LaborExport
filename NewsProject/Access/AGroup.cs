@@ -73,7 +73,7 @@ namespace NewsProject.Access
         {
             using (var db = new ModelDbContext())
             {
-                return db.tblGroups.Where(p => p.Status != (short)Commons.Status.Deleted).OrderByDescending(p => p.Id).Skip(pageNumber * pageSize).Take(pageSize).ToList();
+                return db.tblGroups.Where(p => p.Status != (short)Commons.Status.Deleted).OrderByDescending(p => p.Id).Include(p=>p.Childrens).Skip(pageNumber * pageSize).Take(pageSize).ToList();
             }
         }
 
